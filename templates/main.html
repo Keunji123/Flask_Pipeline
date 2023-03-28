@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Graph made list</title>
+    </head>
+    <body>
+        <h2> for 문으로 10px ~ 35px 크기 출력</h3>
+        <div>
+        <h3>파일의 목록은 {{ dirListing }} 입니다.</h2>
+        <hr>
+        {% if dirListing %}
+
+        {% for file in dirListing %}
+
+            {% set file_name = 'images/' + file.rstrip() %}
+            <img src="{{ url_for('static', filename = file_name) }}">
+
+        {% endfor %}
+        {% else %}
+            <h2>조회 기록이 없습니다.</h2>
+        {% endif %}
+        </div>
+        <script>
+            
+            for(var size = 10; size <= 35; size += 5){
+                document.write("<span ");
+                document.write("style = 'font-size : " + size + "px'>");
+                document.write(size + "px");
+                document.write("</span>");
+            }
+
+        </script>
+    </body>
+</html>
